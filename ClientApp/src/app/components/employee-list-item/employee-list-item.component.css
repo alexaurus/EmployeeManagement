@@ -1,0 +1,35 @@
+.delete{
+    color: #97C469;
+    font-size: 25px;
+}
+
+.selected-delete{
+    color: white;
+    font-size: 25px;
+}
+
+.maxWH{
+    width: 90px;
+    height: 90px;
+}
+
+.fwp-100{
+    width: 100px;
+}
+
+.selected{
+    background-color: #97C469;
+    color: white !important;
+}
+
+.custom-h3{
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.custom-h5{
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}

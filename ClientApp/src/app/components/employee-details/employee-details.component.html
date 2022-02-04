@@ -1,0 +1,90 @@
+<div class="row h-100" *ngIf="!selectedEmployee && !saveEditMode">
+    <div class="col-12 text-center p-4 align-self-center">
+        <h3 class="text-muted">Please select an Employee</h3>
+    </div>
+</div>
+
+<div class="row" *ngIf="selectedEmployee">
+    <div class="col-6 p-4 text-start">
+        <i nz-icon nzType="arrow-left" (click)="back();" class="pointer icon d-md-inline d-lg-none" nzTheme="outline"></i>
+    </div>
+    <div class="col-6 p-4 text-end">
+        <i nz-icon nzType="save" *ngIf="saveEditMode" (click)="save();" class="pointer icon" nzTheme="fill"></i>
+        <i nz-icon nzType="close" *ngIf="saveEditMode" (click)="clear();"  class="pointer icon ms-4" nzTheme="outline"></i>
+        <i nz-icon nzType="edit" *ngIf="!saveEditMode" (click)="enableEditMode();" class="pointer icon" nzTheme="fill"></i>
+        <i nz-icon nzType="delete" *ngIf="!saveEditMode" (click)="deleteReqeusted = true" class="pointer icon ms-4" nzTheme="fill"></i>
+    </div>
+</div>
+<div class="row" *ngIf="selectedEmployee && !saveEditMode">
+    <div class="col-12 text-center p-4">
+        <img [src]="selectedEmployee.employeeImage" class="img-fluid rounded-circle maxWH custom-border" alt="">
+        <span class="custom-h3 green mt-2">{{selectedEmployee.employeeName}}</span>
+        <span class="custom-h4 grey">{{selectedEmployee.employeeJob}}</span>
+    </div>
+</div>
+<div class="row p-4" *ngIf="selectedEmployee && !saveEditMode">
+    <div class="col-12">
+        <div class="row">
+            <span class="custom-h4 grey">Motto</span>
+            <span class="custom-h4">{{selectedEmployee.employeeMotto}}</span>
+        </div>
+        <div class="row mt-3">
+            <span class="custom-h4 grey">Hobbies</span>
+            <span class="custom-h4">{{selectedEmployee.employeeHobbies}}</span>
+        </div>
+        <div class="row mt-3">
+            <span class="custom-h4 grey">Hometown</span>
+            <span class="custom-h4">{{selectedEmployee.employeeHometown}}</span>
+        </div>
+        <div class="row mt-3">
+            <span class="custom-h4 grey">Personal Blog</span>
+            <span class="custom-h4"><a href="{{selectedEmployee.employeePersonalBlog}}">{{selectedEmployee.employeePersonalBlog}}</a></span>
+        </div>
+    </div>
+</div>
+
+<div class="row p-4" *ngIf="selectedEmployee && saveEditMode">
+    <div class="col-12 mx-auto text-center">
+        <div class="rounded-circle maxWH custom-border bg-img mx-auto">
+            <img [src]="selectedEmployee.employeeImage" *ngIf="selectedEmployee.employeeImage != ''" class="img-fluid maxWH-10 rounded-circle" alt="">
+            <input type="file" (change)="holdImage($event);" class="d-none" #imageUploader>
+            <i nz-icon nzType="edit" (click)="imageUploader.click()" [class]="selectedEmployee.employeeImage != '' ? 'icon-img' : 'icon-img-2'" nzTheme="outline"></i>
+            <div [class]="selectedEmployee.employeeImage != '' ? 'dimmer rounded-circle pointer' : 'dimmer-2 rounded-circle pointer'" (click)="imageUploader.click()"></div>
+        </div>
+        <input type="text" placeholder="Name" [(ngModel)]="selectedEmployee.employeeName" class="form-control mt-4">
+        <input type="text" placeholder="Job" [(ngModel)]="selectedEmployee.employeeJob" class="form-control mt-2">
+    </div>
+</div>
+<div class="row p-4" *ngIf="selectedEmployee && saveEditMode">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12">
+                <span class="custom-h4 grey">Motto</span>
+                <input type="text" [(ngModel)]="selectedEmployee.employeeMotto" class="form-control mt-2">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <span class="custom-h4 grey">Hobbies</span>
+                <input type="text" [(ngModel)]="selectedEmployee.employeeHobbies" class="form-control mt-2">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <span class="custom-h4 grey">Hometown</span>
+                <input type="text" [(ngModel)]="selectedEmployee.employeeHometown" class="form-control mt-2">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <span class="custom-h4 grey">Personal Blog</span>
+                <input type="text" [(ngModel)]="selectedEmployee.employeePersonalBlog" class="form-control mt-2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-confirm-delete *ngIf="deleteReqeusted"
+message="Are you sure you want to delete?" 
+(okCallback)="confirmDelete();"
+(cancelCallback)="cancelDelete();"></app-confirm-delete>

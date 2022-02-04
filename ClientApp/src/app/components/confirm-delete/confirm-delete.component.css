@@ -1,0 +1,16 @@
+.fwp-100{
+    width: 100px;
+}
+
+.fhp-200{
+    height: 200px;
+}
+
+.custom-btn{
+    background-color: #97C469;
+    border-color: #97C469;
+}
+
+.bg-fade{
+    background-color: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,80 @@
+.maxWH{
+    height: 200px;
+    width: 200px;
+}
+
+.maxWH-10{
+    height: 190px;
+    width: 190px;
+}
+
+.custom-border{
+    border: 5px solid #97C469;
+}
+
+.custom-h3{
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.custom-h4{
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.green{
+    color: #97C469;
+}
+
+.grey{
+    color: #A1A1A1;
+}
+
+.icon{
+    color: #97C469;
+    font-size: 25px;
+}
+
+a{
+    color: #97C469;
+    text-decoration: none;
+}
+
+.icon-img{
+    color: #97C469;
+    font-size: 60px;
+    position: relative;
+    bottom: 125px;
+}
+
+.icon-img-2{
+    color: #97C469;
+    font-size: 60px;
+    position: relative;
+    top: 55px;
+}
+
+.dimmer{
+    position: relative;
+    bottom: 250px;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 190px;
+    width: 190px;
+}
+
+.dimmer-2{
+    position: relative;
+    bottom: 60px;
+    height: 190px;
+    width: 190px;
+}
+
+.bg-img{
+    background-color: #F1F1F1;
+}
+
+.form-control{
+    background-color: #F1F1F1;
+}

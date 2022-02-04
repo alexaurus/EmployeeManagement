@@ -1,0 +1,12 @@
+<div *ngIf="employeeData" [class]="selected ? 'd-flex flex-row selected p-3 ps-4 pe-4 pointer' : 'd-flex flex-row p-3 ps-4 pe-4 pointer'">
+    <div class="fwp-100">
+        <img [src]="employeeData.employeeImage" class="img-fluid rounded-circle maxWH" alt="">
+    </div>
+    <div class="align-self-center flex-fill">
+        <span class="custom-h3">{{employeeData.employeeName}}</span>
+        <span [class]="selected ? 'custom-h5' : 'text-muted custom-h5'">{{employeeData.employeeJob}}</span>
+    </div>
+    <div class="align-self-center">
+        <i nz-icon nzType="delete" [class]="selected ? 'selected-delete pointer' : 'delete pointer'" nzTheme="fill" (click)="deleteEmployee(employeeData.empId)"></i>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row vh-100">
+    <div class="col-md-12 col-lg-6 bg-lightgrey">
+
+      <div class="d-none d-lg-block h-100">
+        <app-employee-list 
+        (employeeSelected)="employeeIsSelected($event)"
+        (addNewCallback)="addNew();"
+        [selectedIndex]="selectedIdx">
+        </app-employee-list>
+      </div>
+
+      <!-- Small Screens -->
+      <div class="d-md-block d-lg-none h-100" >
+        <app-employee-list
+        *ngIf="!useSmallScreen"
+        (employeeSelected)="employeeIsSelected($event)"
+        (addNewCallback)="addNew();"
+        (smallScreenUsageCallback)="usingSmallScreen($event);"
+        (smallScreenUsageAddCallback)="usingSmallScreenAdd();"
+        [selectedIndex]="selectedIdx">
+        </app-employee-list>
+        
+        <app-employee-details
+        *ngIf="useSmallScreen"
+        [selectedEmployee]="selectedEmp" 
+        [saveEditMode]="saveEditMode"
+        (saveEditModeChanged)="saveEditModeChanged($event)"
+        (backSmallUsageCallback)="backSmallScreenUsage();"
+        (reloadEmployeeCallback)="reloadEmployees();">
+        </app-employee-details>
+        <!-- Small Screens -->
+      </div>
+
+    </div>
+    <div class="col-lg-6 d-none d-lg-block">
+
+      <app-employee-details 
+      [selectedEmployee]="selectedEmp" 
+      [saveEditMode]="saveEditMode"
+      (saveEditModeChanged)="saveEditModeChanged($event)"
+      (reloadEmployeeCallback)="reloadEmployees();"
+      ></app-employee-details>
+
+    </div>
+  </div>
+</div>
